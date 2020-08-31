@@ -38,7 +38,7 @@ class App extends React.Component {
     this.setState({
       list: this.state.list.filter((listItem) => {
         if (listItem.done === true) {
-          return;
+          return ;
         } else {
           return listItem;
         }
@@ -66,15 +66,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>To-Do List</h2>
+        <h1>To-Do List</h1>
         <TodoForm addTodo={this.addTodo} />
         <TodoList 
           list={this.state.list} 
           key={this.state.list.id} 
           toggleDone={this.toggleDone} 
           clearTodo={this.clearTodo} />
-
-        
       </div>
     );
   }
