@@ -4,14 +4,15 @@ import Todo from './Todo';
 const TodoList = (props) => {
     return(
         <div className="todo-list">
-            {/* recieves the todos array and itereates over the list generating a new Todo for each element in the array */}
+            {/* recieves the todos array and iterates over the list generating a new Todo for each element in the array */}
             {props.list.map((item) => (
                 <Todo 
                     key={item.id}
-                    item={item}
+                    todoItem={item}
                     toggleDone={props.toggleDone}
                 />
             ))}
+            <button className="clearTodo" onClick={props.clearTodo}>Clear Completed</button>
         </div>
     );
 };

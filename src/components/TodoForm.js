@@ -23,6 +23,8 @@ class TodoForm extends React.Component {
         this.props.addTodo(this.state.item)
     }
 
+    // function for clearing the form after completing lives in App.js
+
     render(){
         return(
             <form className="form-input" onSubmit={this.handleSubmit}>  
@@ -33,8 +35,7 @@ class TodoForm extends React.Component {
                     onChange={this.handleChange}
                     name='item'
                 />
-                <button className="addTodo" onClick={this.handleSubmit}>Add Todo</button>
-                <button className="clearAllTodo">Clear Completed</button>
+                <button className="addTodo">Add Todo</button>
             </form>
         );
     };

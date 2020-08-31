@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import '../src/components/Todo.css';
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -32,12 +34,23 @@ class App extends React.Component {
   };
 
   // this clear function will clear all todo items that have been switched to done
+  clearTodo = () => {
+    this.setState({
+      list: this.state.list.filter((listItem) => {
+        if (listItem.done === true) {
+          return;
+        } else {
+          return listItem;
+        }
+      })
+  })
+};
 
   // this toggle function will switch todo item to done
-  toggleDone = (clickedItem) => {
+  toggleDone = (clickedItemId) => {
     this.setState({
       list: this.state.list.map((listItem) => {
-        if (listItem.id === clickedItem) {
+        if (listItem.id === clickedItemId) {
           return {
             ...listItem,
             done: !listItem.done
@@ -53,9 +66,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList list={this.state.list} key={this.state.list.id} toggleDone={this.state.toggleDone} />
+        <h2>To-Do List</h2>
         <TodoForm addTodo={this.addTodo} />
+        <TodoList 
+          list={this.state.list} 
+          key={this.state.list.id} 
+          toggleDone={this.toggleDone} 
+          clearTodo={this.clearTodo} />
+
+        
       </div>
     );
   }
