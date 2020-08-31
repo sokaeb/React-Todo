@@ -27,7 +27,7 @@ span {
 }
 
 #root {
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   width: 70%;
   margin: auto;
 }
