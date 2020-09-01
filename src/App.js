@@ -3,6 +3,24 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import '../src/components/Todo.css';
 
+const toDoList = [
+  {
+  item: "Clean kitchen",
+  id: 1234,
+  done: false
+},
+{
+  item: "Do laundry",
+  id: 5678,
+  done: false
+  },
+  {
+    item: "Buy groceries",
+    id: 9012,
+    done: false
+    }
+];
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -11,11 +29,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      list : [{
-        item: '',
-        id: new Date (), // this gives each item a unique id 
-        done: false,
-      }],
+      list : toDoList,
     };
   }
 
@@ -38,7 +52,7 @@ class App extends React.Component {
     this.setState({
       list: this.state.list.filter((listItem) => {
         if (listItem.done === true) {
-          return ;
+          return '';
         } else {
           return listItem;
         }
@@ -46,7 +60,7 @@ class App extends React.Component {
   })
 };
 
-  // this toggle function will switch todo item to done
+  // this toggle function will switch todo item to true (e.g. task is done)
   toggleDone = (clickedItemId) => {
     this.setState({
       list: this.state.list.map((listItem) => {
@@ -67,12 +81,19 @@ class App extends React.Component {
     return (
       <div>
         <h1>To-Do List</h1>
-        <TodoForm addTodo={this.addTodo} />
-        <TodoList 
+        <div className="todo-container">
+        <TodoForm 
+          addTodo={this.addTodo}
+          clearTodo={this.clearTodo}
+          className="container container1"  
+        />
+         <TodoList 
           list={this.state.list} 
           key={this.state.list.id} 
           toggleDone={this.toggleDone} 
-          clearTodo={this.clearTodo} />
+          className="container container2"
+        />
+        </div>
       </div>
     );
   }

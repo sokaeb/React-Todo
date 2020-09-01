@@ -27,6 +27,7 @@ class TodoForm extends React.Component {
 
     render(){
         return(
+        <>
             <form className="form-input" onSubmit={this.handleSubmit}>  
                 <input 
                     value ={this.state.item}
@@ -37,6 +38,10 @@ class TodoForm extends React.Component {
                 />
                 <button className="addTodo">Add Todo</button>
             </form>
+            <div className="container container3">
+                <button className="clearTodo-btn" onClick={this.props.clearTodo}>Clear Completed</button>
+            </div>
+        </>
         );
     };
 };

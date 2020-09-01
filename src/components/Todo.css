@@ -27,14 +27,18 @@ span {
 }
 
 #root {
-  /* border: 1px solid purple; */
   width: 70%;
   margin: auto;
 }
 
-/* h2 {
-  text-align: center;
-} */
+.todo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container3 {
+  order: 1;
+}
 
 .item {
   background-color: #EAB311;
@@ -42,6 +46,10 @@ span {
   margin: 1% 0;
   padding-left: 2%;
   cursor: pointer;
+}
+
+.todo-list{
+margin-top: 3%;
 }
 
 .item.done {
@@ -52,18 +60,24 @@ span {
 form {
   width: 70%;
   display: flex;
-  justify-content: flex-end;
 }
 
 form > input {
-  background-color: #276E94;
+  background-color: #507C93;
   border: 0;
   font-size: 1rem;
   width: 80%;
-  /* outline: 0; */
   color: white;
   border-bottom: 1px solid #EAB311;
   margin-right: 3%;
+}
+
+form > input:hover {
+  background-color: #276E94;
+}
+
+form > input:focus {
+  background-color: #276E94;
 }
 
 button {
